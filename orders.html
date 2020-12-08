@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>orders</title>
+</head>
+<body>
+ <table id="table" style="width: 50%"" border="1px solid red">
+ <!--  <tr>
+    <th>Kg(s)</th>
+    <th>Mobile</th> 
+    <th>Address</th>
+  </tr> -->
+ </table>
+ 
+ <script type="text/javascript">
+ 	console.log("Started");
+ 	
+ 	async function fetchOrder() {
+ 		console.log("Async Started");
+ 		const response = await fetch("http://localhost/sample/get_order.php");
+ 		const orders = response.json();
+ 		return orders;
+ 	}
+ 	fetchOrder().then(orders => {
+ 	
+
+	 	for (x of orders.data) {
+	 		var list = Object.values(x);
+	 		var table = document.getElementById("table");
+	 		var header = table.createTHead();
+			var row = header.insertRow(x);
+			var cell = row.insertCell(x);
+  			cell.innerHTML = list;
+	     // document.createNewElement.appendChild("table").innerHTML = list;
+	     console.log(x);
+	     }
+ 	})
+ 	
+ //   let datA = 
+ // 	(async () => {
+ //  		const data = await fetch("http://localhost/sample/get_order.php").then(response => response.json()).then( data => {
+ 			
+ // 		// datA = data; 	
+ // 		return data });
+ // 		console.log("this: ", data);
+ //  		datA = data;
+ //  		return datA;
+	// })();
+ // 	console.log(datA);
+    // for (const x of datA.data) {
+    //  // document.getElementById("demo").innerHTML = "x";
+    //  console.log(x);
+    //  }
+ 	
+ 	
+
+ </script>
+
+</body>
+</html>
